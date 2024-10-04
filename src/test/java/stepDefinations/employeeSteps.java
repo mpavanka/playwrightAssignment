@@ -18,7 +18,7 @@ public class employeeSteps {
     @Before
     public static void beforeStart() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("msedge").setHeadless(false));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
         context = browser.newContext();
     }
 
@@ -52,4 +52,5 @@ public class employeeSteps {
     public void clickOnCorporateDirectory() {
         clickOnCorporationlink();
     }
+
 }
