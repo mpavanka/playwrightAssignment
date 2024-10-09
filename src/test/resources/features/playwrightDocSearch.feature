@@ -1,4 +1,4 @@
-@test1
+@playwrightDocValidation
 Feature: Playwright topic validation
 
   Scenario: Searching for topic in playwright portal
