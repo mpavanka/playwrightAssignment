@@ -7,7 +7,7 @@ import io.cucumber.java.BeforeAll;
 
 public class Context {
     public static Page page;
-    static Browser browser;
+    public static Browser browser;
     public static BrowserContext context;
     static Playwright playwright;
 
@@ -18,7 +18,7 @@ public class Context {
         System.out.println(browserType);
         switch (browserType){
             case "chrome" ->
-                browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(headLess));
+                browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chromium").setHeadless(headLess));
             case "edge" ->
                 browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("msedge").setHeadless(headLess));
             default ->

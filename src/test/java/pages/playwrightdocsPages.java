@@ -3,6 +3,7 @@ package pages;
 import com.microsoft.playwright.Locator;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static context.Context.browser;
 import static context.Context.page;
 
 

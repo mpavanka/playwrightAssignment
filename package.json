@@ -1,0 +1,14 @@
+{
+  "name": "playwright-java-project",
+  "version": "1.0.0",
+  "description": "Playwright setup for Java tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "playwright": "^1.48.0"
+  },
+  "author": "Pavan Kalyan Mylarapu",
+  "license": "ISC"
+}
