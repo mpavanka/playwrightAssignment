@@ -14,7 +14,7 @@ public class Context {
     public static void lunchBrowser(){
         playwright = Playwright.create();
         String browserType = System.getProperty("BrowserType");
-        Boolean headLess = Boolean.valueOf(System.getProperty("headLess"));
+        boolean headLess = Boolean.parseBoolean((System.getProperty("headLess")));
         System.out.println(browserType);
         switch (browserType){
             case "chrome" ->
@@ -26,7 +26,6 @@ public class Context {
         }
         context = browser.newContext();
         page = context.newPage();
-//        page.setViewportSize(1080, 1080);
     }
 
     @AfterAll
