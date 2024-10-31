@@ -1,0 +1,19 @@
+version: '3'
+services:
+  playwright-chrome:
+    build: .
+    environment:
+      - BROWSER=chromium
+    command: ["java", "-cp", "target/classes:target/dependency/*", "ExampleTest"]
+
+  playwright-firefox:
+    build: .
+    environment:
+      - BROWSER=firefox
+    command: ["java", "-cp", "target/classes:target/dependency/*", "ExampleTest"]
+
+  playwright-webkit:
+    build: .
+    environment:
+      - BROWSER=webkit
+    command: ["java", "-cp", "target/classes:target/dependency/*", "ExampleTest"]

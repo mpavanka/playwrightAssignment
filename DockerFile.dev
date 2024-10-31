@@ -1,0 +1,20 @@
+# Use an official Java image as the base image
+FROM openjdk:21-slim
+
+# Install Playwright and required browsers
+RUN apt-get update && apt-get install -y wget gnupg && \
+    wget -qO- https://deb.playwright.dev/pubkey.gpg | apt-key add - && \
+    echo "deb https://deb.playwright.dev/ bionic main" | tee /etc/apt/sources.list.d/playwright.list && \
+    apt-get update && apt-get install -y playwright
+
+# Set the working directory in the container
+WORKDIR /tests
+
+# Copy the entire project into the container
+COPY . .
+
+# Install Maven dependencies
+RUN ./mvnw clean install
+
+# Command to run tests
+ENTRYPOINT ["java", "-cp", "target/classes:target/dependency/*", "ExampleTest"]

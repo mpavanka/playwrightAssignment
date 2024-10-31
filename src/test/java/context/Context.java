@@ -13,7 +13,8 @@ public class Context {
 
     public static void lunchBrowser(){
         playwright = Playwright.create();
-        String browserType = System.getProperty("BrowserType");
+//        String browserType = System.getProperty("BrowserType");
+        String browserType = System.getenv("BROWSER");
         boolean headLess = Boolean.parseBoolean((System.getProperty("headLess")));
         System.out.println(browserType);
         switch (browserType){
