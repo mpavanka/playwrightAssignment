@@ -13,8 +13,8 @@ public class Context {
 
     public static void lunchBrowser(){
         playwright = Playwright.create();
-//        String browserType = System.getProperty("BrowserType");
-        String browserType = System.getenv("BROWSER");
+        String browserType = System.getProperty("BrowserType");
+//        String browserType = System.getenv("BROWSER");
         boolean headLess = Boolean.parseBoolean((System.getProperty("headLess")));
         System.out.println(browserType);
         switch (browserType){
@@ -22,6 +22,10 @@ public class Context {
                 browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chromium").setHeadless(headLess));
             case "edge" ->
                 browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("msedge").setHeadless(headLess));
+            case "webkit" ->
+                    browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(headLess));
+            case "Firefox" ->
+                    browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(headLess));
             default ->
                     throw new IllegalArgumentException("Browser not supported: " + browserType);
         }
